@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Шпаргалка по дизайну</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111111;
+    --surface: #1c1c1c;
+    --card: #222222;
+    --border: #2e2e2e;
+    --border-light: #3a3a3a;
+    --text: #e8e6e1;
+    --muted: #7a7875;
+    --dim: #4a4845;
+    --amber: #f0a030;
+    --amber-dim: #3a2800;
+    --teal: #2dd4a0;
+    --teal-dim: #00271e;
+    --blue: #60a5fa;
+    --blue-dim: #0d1f38;
+    --coral: #f87171;
+    --coral-dim: #2d1010;
+    --purple: #a78bfa;
+    --purple-dim: #1e1238;
+    --green: #86efac;
+    --green-dim: #0d2318;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 48px 40px 80px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 span { color: var(--amber); }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  .hero-truth {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: var(--amber-dim);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .hero-truth strong {
+    color: var(--amber);
+    font-weight: 600;
+  }
+
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .card-accent-amber { border-top: 2px solid var(--amber); }
+  .card-accent-teal  { border-top: 2px solid var(--teal); }
+  .card-accent-blue  { border-top: 2px solid var(--blue); }
+  .card-accent-coral { border-top: 2px solid var(--coral); }
+  .card-accent-purple{ border-top: 2px solid var(--purple); }
+  .card-accent-green { border-top: 2px solid var(--green); }
+
+  .card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  .tag-amber  { background: var(--amber-dim);  color: var(--amber); }
+  .tag-teal   { background: var(--teal-dim);   color: var(--teal); }
+  .tag-blue   { background: var(--blue-dim);   color: var(--blue); }
+  .tag-coral  { background: var(--coral-dim);  color: var(--coral); }
+  .tag-purple { background: var(--purple-dim); color: var(--purple); }
+  .tag-green  { background: var(--green-dim);  color: var(--green); }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .step {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--dim);
+    min-width: 18px;
+    padding-top: 1px;
+    font-weight: 600;
+  }
+
+  .step-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .step-text em {
+    color: var(--muted);
+    font-style: normal;
+    font-size: 12px;
+  }
+
+  .bullet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 4px;
+  }
+
+  .bullet {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .bullet-dot {
+    color: var(--dim);
+    min-width: 12px;
+    font-size: 12px;
+    padding-top: 1px;
+  }
+
+  .bullet-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .bullet-text strong {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .bullet-text em {
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  .highlight-box {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .highlight-box strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .mono-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 10px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
+  .rule-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+
+  .rule-pill {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 8px 0 14px;
+  }
+
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .flow-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+
+  .flow-step-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--dim);
+    margin-bottom: 4px;
+  }
+
+  .flow-step-text {
+    font-size: 11px;
+    color: var(--text);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .flow-step-sub {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  .emergency-card {
+    background: #1a1200;
+    border: 1px solid #3a2800;
+    border-left: 3px solid var(--amber);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 20px;
+  }
+
+  .emergency-card h3 {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .emergency-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .emergency-step {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+
+  .emergency-step-num {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber);
+    min-width: 20px;
+  }
+
+  .emergency-step-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .emergency-step-text small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-text {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--dim);
+    letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">// дизайн-мышление / шпаргалка</div>
+  <h1>Как придумывать<br>в <span>дизайне</span></h1>
+  <p class="hero-subtitle">Полный алгоритм: от ступора до результата. Работа с референсами, методы генерации идей, насмотренность, рабочий процесс.</p>
+  <div class="hero-truth">
+    <strong>Главное.</strong> Ты не воруешь идеи. Каждый дизайнер работает с референсами - абсолютно каждый. Оригинальность - это не придумать из воздуха, а выбрать нужное из существующего и <strong>собрать по-своему</strong>. Проблема не в референсах, а в том, что ты не знаешь, как с ними работать правильно.
+  </div>
+</div>
+
+
+<!-- СЕКЦИЯ 1: РЕФЕРЕНСЫ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-title">Как работать с референсами</span>
+  </div>
+
+  <div class="grid-3">
+
+    <div class="card card-accent-amber">
+      <span class="tag tag-amber">принцип, не решение</span>
+      <h3>Не копируй — анализируй</h3>
+      <p>Видишь крутую типографику? Не копируй шрифт и размер. Спроси себя: почему это работает?</p>
+      <div class="divider"></div>
+      <div class="bullet-list">
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text"><strong>Контраст размеров?</strong> Возьми этот принцип</span></div>
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text"><strong>Напряжение между элементами?</strong> Возьми это</span></div>
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text"><strong>Ритм и повторение?</strong> Возьми это</span></div>
+      </div>
+      <div class="highlight-box" style="margin-top:12px;">
+        Принцип — твой. Конкретное решение — чужое.
+      </div>
+    </div>
+
+    <div class="card card-accent-teal">
+      <span class="tag tag-teal">правило трёх источников</span>
+      <h3>Синтез, а не копирование</h3>
+      <p>Берёшь из одного референса — похоже на копию. Берёшь из трёх разных — это синтез. Из пяти — точно твоё.</p>
+      <div class="divider"></div>
+      <div class="mono-label">Минимум на проект</div>
+      <div class="bullet-list">
+        <div class="bullet"><span class="bullet-dot">—</span><span class="bullet-text">15-20 референсов из разных областей</span></div>
+        <div class="bullet"><span class="bullet-dot">—</span><span class="bullet-text">Архитектура, фото, упаковка, плакаты, природа</span></div>
+        <div class="bullet"><span class="bullet-dot">—</span><span class="bullet-text">Из каждого — один принцип</span></div>
+        <div class="bullet"><span class="bullet-dot">—</span><span class="bullet-text">Принципы соединяешь сам</span></div>
+      </div>
+    </div>
+
+    <div class="card card-accent-blue">
+      <span class="tag tag-blue">смена контекста</span>
+      <h3>Переноси в другую область</h3>
+      <p>Перемести решение из одной сферы в другую — и это уже не копирование, а переосмысление.</p>
+      <div class="divider"></div>
+      <div class="bullet-list">
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text">Логотип как схема метро → <em>применить сетку к лендингу</em></span></div>
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text">Верстка научного журнала → <em>меню ресторана</em></span></div>
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text">Принцип из архитектуры → <em>UI-компонент</em></span></div>
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text">Плакат 70-х → <em>современная упаковка</em></span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- СЕКЦИЯ 2: МЕТОДЫ ГЕНЕРАЦИИ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-title">Методы запуска идей</span>
+  </div>
+
+  <div class="grid-2">
+
+    <div class="card card-accent-coral">
+      <span class="tag tag-coral">метод ограничений</span>
+      <h3>Пустой холст убивает — ставь рамки</h3>
+      <p>Когда вариантов мало, мозг ищет нестандартные ходы внутри коридора. Это работает лучше, чем полная свобода.</p>
+      <div class="divider"></div>
+      <div class="mono-label">Примеры жёстких ограничений</div>
+      <div class="rule-row">
+        <span class="rule-pill" style="background:#1e1010; color:#f87171;">Только 2 цвета</span>
+        <span class="rule-pill" style="background:#1e1010; color:#f87171;">Один шрифт</span>
+        <span class="rule-pill" style="background:#1e1010; color:#f87171;">Только геометрия</span>
+        <span class="rule-pill" style="background:#1e1010; color:#f87171;">Без иллюстраций</span>
+        <span class="rule-pill" style="background:#1e1010; color:#f87171;">Без цвета вообще</span>
+        <span class="rule-pill" style="background:#1e1010; color:#f87171;">Только один кегль</span>
+      </div>
+    </div>
+
+    <div class="card card-accent-purple">
+      <span class="tag tag-purple">метод вопросов</span>
+      <h3>Задавай вопросы подряд</h3>
+      <p>Не каждый вопрос даст идею. Но один из десяти — даст точно.</p>
+      <div class="divider"></div>
+      <div class="bullet-list">
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Что если сделать это в три раза крупнее?</span></div>
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Что если убрать половину элементов?</span></div>
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Что если поменять местами главное и второстепенное?</span></div>
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Что если это было из другой эпохи — 20-х, 80-х, будущего?</span></div>
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Что если это делал бы другой дизайнер — брутальный, хаотичный?</span></div>
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Что если сделать противоположное очевидному?</span></div>
+      </div>
+    </div>
+
+    <div class="card card-accent-green">
+      <span class="tag tag-green">метод слов</span>
+      <h3>Переводи абстрактное в конкретное</h3>
+      <p>Запиши 10 слов, которые описывают нужное настроение. Напротив каждого — как это выглядит визуально.</p>
+      <div class="divider"></div>
+      <div class="bullet-list">
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text"><strong>напряжение</strong> — острые углы, красный, плотная верстка без воздуха</span></div>
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text"><strong>спокойствие</strong> — воздух, нейтральный цвет, тонкий шрифт</span></div>
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text"><strong>дерзость</strong> — крупный жирный шрифт, контрастный акцент</span></div>
+        <div class="bullet"><span class="bullet-dot">→</span><span class="bullet-text"><strong>точность</strong> — сетка, монспейс, минимум декора</span></div>
+      </div>
+    </div>
+
+    <div class="card card-accent-amber">
+      <span class="tag tag-amber">метод набросков</span>
+      <h3>Сначала бумага, потом программа</h3>
+      <p>Открываешь Фигму сразу — уже думаешь техническими категориями. Это блокирует.</p>
+      <div class="divider"></div>
+      <div class="steps">
+        <div class="step"><span class="step-num">01</span><span class="step-text">Берёшь бумагу и ручку</span></div>
+        <div class="step"><span class="step-num">02</span><span class="step-text">Рисуешь 15-20 эскизов за 10 минут <em>(быстро, криво, схематично — норм)</em></span></div>
+        <div class="step"><span class="step-num">03</span><span class="step-text">Не прорабатываешь, только фиксируешь направление</span></div>
+        <div class="step"><span class="step-num">04</span><span class="step-text">Выбираешь три самых интересных</span></div>
+        <div class="step"><span class="step-num">05</span><span class="step-text">Только потом идёшь в программу</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- СЕКЦИЯ 3: НАСМОТРЕННОСТЬ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-title">Насмотренность: что и как смотреть</span>
+  </div>
+
+  <div class="grid-2">
+
+    <div class="card card-accent-blue">
+      <span class="tag tag-blue">источники</span>
+      <h3>Где смотреть</h3>
+      <div class="bullet-list">
+        <div class="bullet"><span class="bullet-dot">▸</span><span class="bullet-text"><strong>Behance, Dribbble</strong> — для трендов, но не зависай <em>(замыливает взгляд)</em></span></div>
+        <div class="bullet"><span class="bullet-dot">▸</span><span class="bullet-text"><strong>Fonts In Use</strong> — реальное применение шрифтов в жизни</span></div>
+        <div class="bullet"><span class="bullet-dot">▸</span><span class="bullet-text"><strong>Muzli, Savee.it</strong> — агрегаторы с хорошей фильтрацией</span></div>
+        <div class="bullet"><span class="bullet-dot">▸</span><span class="bullet-text"><strong>История дизайна</strong> — Bauhaus, швейцарский стиль, конструктивизм</span></div>
+        <div class="bullet"><span class="bullet-dot">▸</span><span class="bullet-text"><strong>Архивы плакатов</strong> — советский авангард, польская школа, психоделика 60-х</span></div>
+        <div class="bullet"><span class="bullet-dot">▸</span><span class="bullet-text"><strong>Не дизайн</strong> — фотография, кино, мода, архитектура <em>(самый ценный источник)</em></span></div>
+      </div>
+    </div>
+
+    <div class="card card-accent-teal">
+      <span class="tag tag-teal">активное смотрение</span>
+      <h3>Как смотреть — не скроллить, а разбирать</h3>
+      <p>Пассивный скроллинг не строит насмотренность. Нужно активно останавливаться.</p>
+      <div class="divider"></div>
+      <div class="mono-label">Когда видишь что-то интересное — задай вопросы</div>
+      <div class="bullet-list">
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Какая здесь сетка?</span></div>
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Почему именно этот шрифт?</span></div>
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Что создаёт иерархию?</span></div>
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Какие здесь отступы и ритм?</span></div>
+        <div class="bullet"><span class="bullet-dot">?</span><span class="bullet-text">Что было бы, если убрать один элемент?</span></div>
+      </div>
+      <div class="highlight-box" style="margin-top:12px;">
+        <strong>Веди папку с разобранными примерами.</strong> Не просто сохранённое — а с пометками, почему это работает.
+      </div>
+    </div>
+
+    <div class="card full-width" style="background: var(--surface);">
+      <span class="tag tag-coral">важно</span>
+      <h3 style="margin-bottom: 8px;">Ступор идей — это почти всегда симптом бедной насмотренности</h3>
+      <p style="margin: 0;">Если в голове мало материала — выдавать нечего. Насмотренность это не просмотр красивых картинок, а построение библиотеки визуальных принципов у себя в голове. Чем больше разобранных примеров, тем легче синтезировать что-то своё.</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- СЕКЦИЯ 4: РАБОЧИЙ ПРОЦЕСС -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title">Рабочий процесс от задачи до результата</span>
+  </div>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-num">01</div>
+      <div class="flow-step-text">Читай бриф несколько раз</div>
+      <div class="flow-step-sub">Выпиши ключевые слова</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">02</div>
+      <div class="flow-step-text">Изучи контекст</div>
+      <div class="flow-step-sub">Аудитория, среда, конкуренты</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">03</div>
+      <div class="flow-step-text">Собери референсы</div>
+      <div class="flow-step-sub">Минимум 15, из разных областей</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">04</div>
+      <div class="flow-step-text">Вытащи принципы</div>
+      <div class="flow-step-sub">Не решения — принципы</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">05</div>
+      <div class="flow-step-text">Эскизы от руки</div>
+      <div class="flow-step-sub">15-20 штук за 10 мин</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">06</div>
+      <div class="flow-step-text">Три направления</div>
+      <div class="flow-step-sub">Черновики в программе</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">07</div>
+      <div class="flow-step-text">Выбери лучшее</div>
+      <div class="flow-step-sub">Доведи до конца</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">08</div>
+      <div class="flow-step-text">Проверь: решает ли задачу?</div>
+      <div class="flow-step-sub">Не «красиво», а решает</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- АНТИКРИЗИСНЫЙ ПРОТОКОЛ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <span class="section-title">Антикризисный протокол</span>
+  </div>
+
+  <div class="emergency-card">
+    <h3>// ступор прямо сейчас — алгоритм на 30 минут</h3>
+    <div class="emergency-grid">
+      <div class="emergency-step">
+        <span class="emergency-step-num">1</span>
+        <div class="emergency-step-text">
+          Напиши три слова, которые описывают суть задачи
+          <small>Не думай долго — первое, что приходит в голову</small>
+        </div>
+      </div>
+      <div class="emergency-step">
+        <span class="emergency-step-num">2</span>
+        <div class="emergency-step-text">
+          Найди по 5 референсов на каждое слово
+          <small>Уже 15 референсов — есть с чем работать</small>
+        </div>
+      </div>
+      <div class="emergency-step">
+        <span class="emergency-step-num">3</span>
+        <div class="emergency-step-text">
+          Выпиши из каждого один визуальный принцип
+          <small>Получится 15 принципов</small>
+        </div>
+      </div>
+      <div class="emergency-step">
+        <span class="emergency-step-num">4</span>
+        <div class="emergency-step-text">
+          Выбери три несовместимых принципа
+          <small>И попробуй их совместить</small>
+        </div>
+      </div>
+      <div class="emergency-step">
+        <span class="emergency-step-num">5</span>
+        <div class="emergency-step-text">
+          Нарисуй на бумаге — 10 эскизов за 5 минут
+          <small>Криво, схематично — неважно</small>
+        </div>
+      </div>
+      <div class="emergency-step">
+        <span class="emergency-step-num">6</span>
+        <div class="emergency-step-text">
+          Возьми лучший эскиз и зайди в программу
+          <small>Что-то всегда лучше пустого холста</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="footer">
+  <span class="footer-text">DESIGN CHEATSHEET / V1</span>
+  <span class="footer-text">ОЩУЩЕНИЕ «Я ВОРУЮ» УХОДИТ, КОГДА ПОНИМАЕШЬ МЕХАНИКУ</span>
+</div>
+
+</body>
+</html>
